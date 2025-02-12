@@ -38,24 +38,37 @@ const VersionCard = ({ title, description, version, size, onDownload }: VersionC
 
 const VersionTableRow = ({ 
   version, 
+  subtitle,
   description, 
-  onDownload 
+  downloadLink,
+  isSpecial = false
 }: { 
-  version: string; 
-  description: string; 
-  onDownload: () => void;
+  version: string;
+  subtitle?: string;
+  description: string;
+  downloadLink: string;
+  isSpecial?: boolean;
 }) => (
-  <div className="grid grid-cols-12 gap-4 py-4 border-b border-gray-800">
-    <div className="col-span-3 text-gray-300">{version}</div>
-    <div className="col-span-7 text-gray-400 text-sm">{description}</div>
+  <div className="grid grid-cols-12 gap-4 py-6 border-b border-white/5">
+    <div className="col-span-4 lg:col-span-3">
+      <div className="text-gray-200 font-semibold">{version}</div>
+      {subtitle && <div className="text-gray-500 text-sm mt-1">{subtitle}</div>}
+    </div>
+    <div className="col-span-6 lg:col-span-7">
+      <p className="text-gray-400 text-sm">{description}</p>
+    </div>
     <div className="col-span-2 text-right">
-      <Button 
-        onClick={onDownload} 
-        variant="link" 
-        className="text-blue-400 hover:text-blue-300"
-      >
-        Download for Free <HardDriveDownload className="ml-2 w-4 h-4" />
-      </Button>
+      {isSpecial ? (
+        <span className="text-sm text-blue-400">With Tweaks Ultimate Plan</span>
+      ) : (
+        <Button 
+          variant="ghost" 
+          className="text-gray-300 hover:text-white"
+          onClick={() => window.open(downloadLink, '_blank')}
+        >
+          Download for Free <HardDriveDownload className="ml-2 w-4 h-4" />
+        </Button>
+      )}
     </div>
   </div>
 );
@@ -123,37 +136,54 @@ export default function DownloadPage() {
           </div>
 
           {/* Archive Section */}
-          <div className="glass-card p-6 rounded-lg mb-12">
-            <div className="flex gap-4 mb-6">
-              <button className="text-blue-400 hover:text-blue-300 font-semibold">ShadowCore10</button>
-              <button className="text-gray-400 hover:text-white">ShadowCore11</button>
-              <button className="text-gray-400 hover:text-white">tweaks</button>
+          <div className="bg-gradient-to-br from-[#0c1220] to-[#0c1220]/50 backdrop-blur-xl border border-white/5 rounded-lg p-6">
+            <div className="flex gap-4 mb-6 border-b border-white/5 pb-4">
+              <button className="text-white font-semibold px-4 py-2 rounded-md bg-blue-500/10">ShadowCore10</button>
+              <button className="text-gray-400 hover:text-white px-4 py-2">ShadowCore11</button>
+              <button className="text-gray-400 hover:text-white px-4 py-2">tweaks</button>
             </div>
-            <h3 className="text-xl font-bold mb-6">Archive</h3>
+            <h3 className="text-xl font-bold mb-6 text-white">Archive</h3>
             
             <div className="space-y-2">
-              <div className="grid grid-cols-12 gap-4 py-2 border-b border-gray-700 text-sm text-gray-400">
-                <div className="col-span-3">Version</div>
-                <div className="col-span-7">What's New</div>
+              <div className="grid grid-cols-12 gap-4 py-2 text-sm text-gray-400 border-b border-white/5">
+                <div className="col-span-4 lg:col-span-3">Version</div>
+                <div className="col-span-6 lg:col-span-7">What's New</div>
                 <div className="col-span-2"></div>
               </div>
               
               <VersionTableRow
                 version="ShadowCore 10 22H2 Home-N Standard"
-                description="Best for Mid & High-End devices, With the Windows Defender, Store, languages and features."
-                onDownload={() => handleDownload('10-22h2-home-n')}
+                subtitle="Best for Mid & High-End devices"
+                description="Best for Mid & High-End devices, With the Windows Defender, Store, languages and features ( User Name : Admin )."
+                downloadLink="https://example.com/shadowcore-10-22h2-home-n.iso"
               />
               
               <VersionTableRow
                 version="ShadowCore 10 1909 Lite"
+                subtitle="The best Windows 10 Build for old hardware"
                 description="0 bloatwares, Low CPU processes, Low RAM usage, 1.3GB iso"
-                onDownload={() => handleDownload('10-1909-lite')}
+                downloadLink="https://example.com/shadowcore-10-1909-lite.iso"
               />
               
               <VersionTableRow
                 version="ShadowCore 10 22h2 Standard"
+                subtitle="Best ShadowCore OS 10 Release You can find!"
                 description="0 bloatwares, 70 CPU processes, Low RAM usage (1.0 gb), Only 5GB of disk usage, 1.5GB iso"
-                onDownload={() => handleDownload('10-22h2-standard')}
+                downloadLink="https://example.com/shadowcore-10-22h2-standard.iso"
+                isSpecial
+              />
+
+              <VersionTableRow
+                version="ShadowCore Tweaks Standard"
+                description="Gain up to 20% FPS boost with useful tools. Enjoy performance, network, power tweaks, GPU optimization, registry enhancements, deep PC debloating. ( UnSupported )"
+                downloadLink="https://example.com/shadowcore-tweaks-standard.iso"
+              />
+
+              <VersionTableRow
+                version="ShadowCoreTweaks Ultimate"
+                description="Get 100% free access to all ShadowCore OS versions, Boost FPS by 30% with advanced scripts, offering optimizations for performance, privacy, network, power, BIOS, GPU, USB, and more. Remove unnecessary apps, optimize the registry, and enjoy deep PC debloating for a streamlined, efficient system. Elevate performance with advanced power optimization techniques."
+                downloadLink="https://example.com/shadowcore-tweaks-ultimate.iso"
+                isSpecial
               />
             </div>
           </div>
