@@ -10,7 +10,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
-    
+    "homepage": "https://goku1717.github.io/shadowcore-dreamweaver-30"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -82,5 +82,4 @@
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
   }
-   "homepage": "https://goku1717.github.io/shadowcore-dreamweaver-30"
 }
