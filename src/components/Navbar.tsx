@@ -26,6 +26,7 @@ export function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-sm text-gray-300 hover:text-white transition-colors">Features</a>
+            <a href="#download" className="text-sm text-gray-300 hover:text-white transition-colors">Download</a>
             <a href="#about" className="text-sm text-gray-300 hover:text-white transition-colors">About</a>
             <a href="#pricing" className="text-sm text-gray-300 hover:text-white transition-colors">Pricing</a>
             <a href="#faq" className="text-sm text-gray-300 hover:text-white transition-colors">FAQ</a>
@@ -46,6 +47,7 @@ export function Navbar() {
         <div className="md:hidden glass mt-4 py-4">
           <div className="flex flex-col space-y-4 px-4">
             <a href="#features" className="text-sm text-gray-300 hover:text-white transition-colors">Features</a>
+            <a href="#download" className="text-sm text-gray-300 hover:text-white transition-colors">Download</a>
             <a href="#about" className="text-sm text-gray-300 hover:text-white transition-colors">About</a>
             <a href="#pricing" className="text-sm text-gray-300 hover:text-white transition-colors">Pricing</a>
             <a href="#faq" className="text-sm text-gray-300 hover:text-white transition-colors">FAQ</a>
