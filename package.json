@@ -1,5 +1,4 @@
 {
-  
   "name": "vite_react_shadcn_ts",
   "private": true,
   "version": "0.0.0",
@@ -9,7 +8,7 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
     "homepage": "https://goku1717.github.io/shadowcore-dreamweaver-30"
   },
   "dependencies": {
